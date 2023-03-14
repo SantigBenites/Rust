@@ -37,8 +37,8 @@ fn main() {
 
         match operation {
             OPERATIONS::add => {
-                        let newBook = createBook();
-                        m.insert(newBook.Title, newBook.clone());
+                        let ref newBook = createBook();
+                        m.insert(newBook.Title.to_string(), newBook.clone());
                     },
             OPERATIONS::remove => {
                         let bookToRemove = getInput("Input the name of book to delte");
