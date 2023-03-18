@@ -9,7 +9,7 @@ use lazy_static::lazy_static;
 //    static ref HASHMAP: HashMap<String, Book> = { let mut m = HashMap::new(); m};
 //}
 
-#[derive(Clone,PartialEq)]
+#[derive(Clone, PartialEq)]
 struct Book{
     Title:String,
     pages:i32
@@ -37,7 +37,7 @@ fn main() {
 
         match operation {
             OPERATIONS::add => {
-                        let ref newBook = createBook();
+                        let newBook = createBook();
                         m.insert(newBook.Title.to_string(), newBook.clone());
                     },
             OPERATIONS::remove => {
