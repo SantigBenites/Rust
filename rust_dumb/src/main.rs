@@ -30,6 +30,12 @@ fn main() {
     println!("Hemlo, this dumb rust ,library, u add book i store book");
     // TODO add menu
 
+    println!("  1 for add neew book \n 
+                2 for remobe book \n 
+                3 fr chenge book \n 
+                4 to show everithing \n 
+                5 to exxit \n");
+
     let mut m:HashMap<String, Book> = HashMap::new();
     let mut operation : OPERATIONS = getOPERATION();
 
