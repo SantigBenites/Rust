@@ -4,12 +4,25 @@
     <meta charset="utf-8">
     <title>Hello!</title>
     <link rel="stylesheet" href="../css/hello.css">
+    <script src="../javascipt/hello.js" defer></script> 
   </head>
   <body>
     <h1>Oops!</h1>
     <p>Many heello</p>
 
     <a href="/html/nothello.html">link text</a>
+
+    <form onsubmit="temp" method="post" >
+      <fieldset>
+        <legend>Person:</legend>
+        <label for="fname">First name:</label><br>
+        <input type="text" id="fname" name="fname" value="Ana"><br>
+        <label for="lname">Last name:</label><br>
+        <input type="text" id="lname" name="lname" value="Cacho"><br><br>
+        <button onclick="temp" class="myBtn" >hello</button>
+        <input cmethod="POST" action="" class="myBtn" value="Submit">
+      </fieldset>
+    </form> 
 
   </body>
 </html>

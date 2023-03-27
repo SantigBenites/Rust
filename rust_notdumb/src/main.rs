@@ -33,9 +33,23 @@ fn handle_connection(mut stream: TcpStream) {
     println!("Request line is {request_line}");
 
     
-    let re = Regex::new(r"GET (.*) HTTP/1.1").unwrap();
+    let get_regex = Regex::new(r"GET (.*) HTTP/1.1").unwrap();
+    let put_regex = Regex::new(r"PUT (.*) HTTP/1.1").unwrap();
+    if get_regex.is_match(&request_line){
+        get_handler(stream, &request_line);
+    }
 
-    let (status_line, filename) = if re.is_match(&request_line) {
+    if put_regex.is_match(&request_line){
+
+    }
+
+}
+
+fn get_handler(mut stream: TcpStream,request_line:&String){
+
+    let (status_line, filename) = {
+
+
         let fileregex = Regex::new(r"/(.*) ").unwrap();
         let temp = fileregex.find(&request_line).map(|mat| mat.as_str());
         
@@ -45,8 +59,6 @@ fn handle_connection(mut stream: TcpStream) {
         }
         
 
-    } else {
-        ("HTTP/1.1 404 NOT FOUND", "404.html")
     };
 
     // Combining filename and "." so that rust knows file location
@@ -66,4 +78,9 @@ fn handle_connection(mut stream: TcpStream) {
         format!("{status_line}\r\nContent-Length: {length}\r\n\r\n{content}");
 
     stream.write_all(response.as_bytes()).unwrap();
+}
+
+
+fn put_handler(mut stream:TcpStream,request_line:&String){
+    
 }
